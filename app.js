@@ -22,8 +22,8 @@ function login(event){
         for(let i = 0;i < usuarios.length; i++){
             if(log == usuarios[i].login && senha == usuarios[i].password){
                 console.log("voce logou no sistema :) ")
-              
-                window.location.href = "/index.html";
+                window.location.href =  window.location.href.replace("login.html","") + "index.html"
+
                 alert("Voce logou")
             }
 }       
