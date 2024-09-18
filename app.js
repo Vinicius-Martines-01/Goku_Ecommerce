@@ -23,7 +23,7 @@ function login(event){
             if(log == usuarios[i].login && senha == usuarios[i].password){
                 console.log("voce logou no sistema :) ")
               
-                window.location.href = href="../index.html";
+                window.location.href = href="/index.html";
                 alert("Voce logou")
             }
 }       
