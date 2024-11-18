@@ -10,6 +10,43 @@
     font-style: normal;
 }
 
+@keyframes jump {
+    0% {
+      transform: translateY(10%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+}
+
+@keyframes carrinho-mais {
+    0% {
+      transform: translateY(1%) scale(1.0);
+      opacity: 0.9;
+    }
+    50% {
+        transform: translateY(1%) scale(1.11);
+      }
+    70% {
+        transform: translateY(1%) scale(1.1);
+      }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+}
+#carrinho-box{
+    animation: 0.1s ease-out 0s 1 carrinho-mais;
+}
+
+
+#carrinho_qtd{
+    animation: 0.3s ease-out 0s 1 jump;
+
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -22,6 +59,15 @@ header{
     padding-bottom: 10px;
     min-height: fit-content;
     height: 60px;
+}
+
+header a{
+    color: white;
+    
+}
+header a:hover{
+    text-decoration: none;
+    color: white;
 }
 nav{
     color: white;
@@ -157,12 +203,13 @@ nav img{
     outline: none;
     color: white;
     background-color: #c3fdb8;
-    transition: background-color 0.5s;
+    transition: background-color 0.5s, transform 0.2s;
     cursor: pointer;
 
 }
 .btn-comprar:hover{
     background-color: rgb(110, 255, 117);
+    transform: translateY(-3px) scale(1.03);
 }
 
 .btn-comprar.comprado{

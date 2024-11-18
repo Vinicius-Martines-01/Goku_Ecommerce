@@ -1,0 +1,121 @@
+.carrinho-container{
+    width: 95%;
+
+    height: fit-content;
+    margin: 15px;
+    justify-items: center;
+}
+
+.card-carrinho{
+    display: grid;
+    grid-template-columns: 150px auto 100px 150px 60px;
+    background-color: white;
+    border-radius: 15px;
+
+    padding: 25px;
+    min-height: 150px;
+    margin-top: 25px;
+    height: fit-content;
+    width: inherit;
+    justify-self: center;
+
+
+
+    outline: 1px solid black;
+    transition: transform 0.1s;
+}
+
+.card-carrinho:hover{
+    transform: scale(1.005);
+}
+
+.card-carrinho-div{
+    padding-left: 15px;
+    
+}
+
+.card-carrinho-div{
+    font-size: x-large;
+}
+
+.card-carrinho-qtd{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.card-carrinho-qtd > p{
+    font-size: xx-large;
+}
+
+.card-carrinho-btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+#mais, #menos{
+    width: 35px;
+    height: 35px;
+    position: relative;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-color: rgb(255, 174, 0);
+    border-radius: 0.25em;
+    margin: 15px;
+    transition: filter 0.1s, transform 0.1s;
+}
+
+#menos:hover, #mais:hover{
+    filter: brightness(110%);
+    transform: translateY(-3px);
+}
+
+#menos:active, #mais:active{
+    filter: brightness(120%);
+    transform: translateY(-5px) scale(1.01);
+}
+
+
+#mais{
+    background-image: url('/img/up-arrow.png');
+}
+#menos{
+    background-image: url('/img/down-arrow.png');
+}
+
+
+#remover{
+
+    width: 35px;
+    height: 35px;
+    position: relative;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-color: rgb(244, 239, 237);
+    border-radius: 0.25em;
+    margin: 15px;
+    background-image: url('/img/remove.png');
+    top: -20px;
+    left: 15px;
+    transition: filter 0.1s, transform 0.1s, background-color 0.1s;
+}
+
+#remover:hover{
+    background-color: rgb(185, 0, 0);
+    filter: brightness(110%);
+    transform: translateY(-3px);
+}
