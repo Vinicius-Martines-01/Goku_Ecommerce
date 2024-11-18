@@ -1,0 +1,229 @@
+@font-face {
+    font-family: 'poppins';
+    src: url('./fonts/Font_Poppins/Poppins-Medium.ttf') format('truetype'),
+    url('./fonts/Font_Poppins/Poppins-Black.ttf') format('truetype'),
+    url('./fonts/Font_Poppins/Poppins-ExtraBold.ttf') format('truetype'),
+    url('./fonts/Font_Poppins/Poppins-Bold.ttf') format('truetype'),
+    url('./fonts/Font_Poppins/Poppins-Light.ttf') format('truetype'),
+    url('./fonts/Font_Poppins/Poppins-ExtraLight.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins';
+
+}
+header{
+    background-color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: fit-content;
+    height: 60px;
+}
+nav{
+    color: white;
+    width: inherit;
+    padding-top: 10px;
+    margin-inline: 2%;
+
+
+    font-weight: bolder;
+}
+
+nav img{
+    height: auto;
+    margin-inline: 15px;
+    max-width: 4em;
+}
+
+
+.nav-main{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    padding-top: 5px;
+}
+.nav-main :last-child{
+    justify-self: end;
+}
+.logo_link{
+    display: flex;
+    gap: 10px;
+    padding-top: 5px;
+}
+
+.logo_link > h1{
+    font-size: xx-large; 
+    display: flex;
+
+    flex-direction: column;
+    align-self: flex-end;
+    padding-bottom: 0.25em;
+    vertical-align: bottom; 
+
+
+}
+
+.nav-bottom{
+    display: grid;
+    position: relative;
+    justify-content: center;
+    column-gap: 20%;
+    width: inherit;
+    background-color: black;
+    grid-template-columns: auto auto auto;
+    
+}
+
+.nav-bottom a{
+    text-decoration: none;
+    color: white;
+    font-weight: 200;
+    transition: color 0.1s;
+}
+
+.nav-bottom a:hover{
+    text-decoration: none;
+
+    color: rgb(255, 134, 35);
+}
+
+
+#merchs{
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    min-height: fit-content;
+    height: 600px;
+
+}
+
+.card-produto{
+    background-color: white;
+    border-radius: 15px;
+    margin: 15px;
+    padding: 25px;
+    width: 300px;
+    height: fit-content;
+    min-height: 455px;
+    outline: 1px solid black;
+    transition: transform 0.1s;
+}
+
+.card-produto:hover{
+    transform: translateY(-5px) scale(1.01);
+}
+
+.card-produto.comprado{
+    transform: scale(1.02);
+    outline: 2px solid green;
+    transition: background 0.1s;
+}
+.card-produto.comprado:hover{
+    background: rgb(243, 255, 241);
+    transform: scale(1.04);
+    outline: 2px solid green;
+}
+
+.card-produto h5{
+    font-size: large;
+    padding-top: 10px;
+
+}
+
+.card-produto p{
+    font-size: x-large;
+}
+
+
+
+.btn-comprar {
+    background-image: url('/img/add-ao-carrinho.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    height: 45px;
+    width: 45px;
+    padding: 0.5em 0.5em;
+    margin: 0.2em;
+    border-radius: 100%;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #c3fdb8;
+    transition: background-color 0.5s;
+    cursor: pointer;
+
+}
+.btn-comprar:hover{
+    background-color: rgb(110, 255, 117);
+}
+
+.btn-comprar.comprado{
+    background-color: rgb(0, 177, 9);
+}
+.buttom-pos{
+    display: grid;
+    grid-template-columns: 60% auto;
+    width: 100%;
+
+}
+
+.buttom-pos p{
+    font-size: medium;
+}
+.buttom-pos :last-child{
+    justify-self: end;
+}
+
+
+.btn-compras {
+    background-image: url('/img/compras-online.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    height: 65px;
+    width: 65px;
+    padding: 0.5em 0.5em;
+    margin: 0.1em;
+    border-radius: 20%;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #ffa319;
+    transition: background-color 0.5s;
+    cursor: pointer;
+
+}
+
+.carrino_log {
+
+    position: absolute;
+    font-size: larger;
+    height: 50px;
+    width: 60px;
+    right: 10px;
+    top: 10px;
+}
+
+.carrino_log > p{
+    position: relative;
+    background-color: rgb(255, 238, 0);
+    padding: 0.30em 0.75em;
+    border-radius: 100%;
+}
+
+.btns_texto{
+    color: black;
+    transition: color 0.3s;
+}
+
+.btns_texto.ao_carrinho{
+    color: rgb(17, 145, 0);
+}

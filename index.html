@@ -5,18 +5,41 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="style/style.css">
+    <script src="scripts/app.js" defer></script>
+    
     <title>Produtos</title>
   </head>
-  <body>
-    <nav class="nav nav-pills nav-fill">
+  <body onload="vec_produtos(), add_produtos_to_main(), change_buttons()">
+    <header>
+        <nav class="nav-main">
+            <a class="logo_link">
+                <img src="img/LOGO_dbz.png">
+                <h1> GokuStore</h1>
+            </a>
+            <div >
+                <button class="btn-compras"></button>
+                <div class="carrino_log">
+                    <p id="carrinho_qtd">0</p>
+                </div>
+            </div>
+        </nav>
+        <nav class="nav-bottom">
+            <a class="nav-item nav-link" href="login.html"> Login</a>
+            <a class="nav-item nav-link" href="carrinho.html"> Carrinho</a>
+            <a class="nav-item nav-link" href="sobrenos.html"> Sobre nós</a>
+        </nav>
+    </header>
 
-        <a class="nav-item nav-link" href="login.html"> Login</a>
-        <a class="nav-item nav-link" href="carrinho.html"> Carrinho</a>
-        <a class="nav-item nav-link" href="sobrenos.html"> Sobre nós</a>
-
-     </nav>
     <h1>Produtos</h1>
+    <!-- Fonte dos Icons
+    <a href="https://www.flaticon.com/br/icones-gratis/adicionar-produto" title="adicionar produto ícones">Adicionar produto ícones criados por Uniconlabs - Flaticon</a>
+    <a href="https://www.flaticon.com/br/icones-gratis/compra" title="compra ícones">Compra ícones criados por Uniconlabs - Flaticon</a>
+    -->
+    <div id="merchs">
+
+
+    </div>
 
     <div class="container mt-4">
         <div class="row">
