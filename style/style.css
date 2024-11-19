@@ -203,7 +203,7 @@ nav img{
 
 
 .btn-comprar {
-    background-image: url('/img/add-ao-carrinho.png');
+    background-image: url('../img/add-ao-carrinho.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 50%;
@@ -244,7 +244,7 @@ nav img{
 
 
 .btn-compras {
-    background-image: url('/img/compras-online.png');
+    background-image: url('../img/compras-online.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 50%;
@@ -262,7 +262,7 @@ nav img{
 }
 
 .btn-login {
-    background-image: url('/img/user.png');
+    background-image: url('../img/user.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 50%;
