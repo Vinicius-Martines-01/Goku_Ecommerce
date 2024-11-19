@@ -86,10 +86,10 @@
 
 
 #mais{
-    background-image: url('/img/up-arrow.png');
+    background-image: url('../img/up-arrow.png');
 }
 #menos{
-    background-image: url('/img/down-arrow.png');
+    background-image: url('../img/down-arrow.png');
 }
 
 
@@ -108,7 +108,7 @@
     background-color: rgb(244, 239, 237);
     border-radius: 0.25em;
     margin: 15px;
-    background-image: url('/img/remove.png');
+    background-image: url('../img/remove.png');
     top: -20px;
     left: 15px;
     transition: filter 0.1s, transform 0.1s, background-color 0.1s;
