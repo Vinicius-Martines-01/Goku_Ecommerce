@@ -10,21 +10,27 @@
     
     <title>Produtos</title>
   </head>
-  <body onload="vec_produtos(), add_produtos_to_main(), change_buttons()">
+  <body onload="vec_produtos(), add_produtos_to_main(), change_buttons(), verify_if_log()">
     <header>
         <nav class="nav-main">
             <a class="logo_link">
                 <img src="img/LOGO_dbz.png">
                 <h1> GokuStore</h1>
             </a>
-            <div>
+            <div id="login-box">
+                <a href="login.html">
+                    <button class="btn-login"></button>
+                    <p id="login_txt">Fazer Login</p>
+                </a>
+
+            </div>
+            <div id="login-object">
                 <a href="carrinho.html">
                     <button id="carrinho-box" class="btn-compras"></button>
                     <div class="carrino_log">
                         <p id="carrinho_qtd">0</p>
                     </div>
                 </a>
-
             </div>
         </nav>
         <nav class="nav-bottom">
@@ -36,6 +42,7 @@
 
     <h1>Produtos</h1>
     <!-- Fonte dos Icons
+     <a href="https://www.flaticon.com/br/icones-gratis/do-utilizador" title="do utilizador ícones">Do utilizador ícones criados por Freepik - Flaticon</a>
     <a href="https://www.flaticon.com/br/icones-gratis/adicionar-produto" title="adicionar produto ícones">Adicionar produto ícones criados por Uniconlabs - Flaticon</a>
     <a href="https://www.flaticon.com/br/icones-gratis/compra" title="compra ícones">Compra ícones criados por Uniconlabs - Flaticon</a>
     -->
@@ -43,127 +50,8 @@
 
 
     </div>
+    
 
-    <div class="container mt-4">
-        <div class="row">
-            <!-- Card 1 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="img/camisetagoku.jpg" class="card-img-top" alt="Produto 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Camiseta Goku Masculina</h5>
-                        <p class="card-text">R$59,99.</p>
-                        <a href="carrinho.html" class="btn btn-primary">Adicionar ao Carrinho</a>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Card 2 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="img/bonecodogoku.jpg" class="card-img-top" alt="Produto 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Boneco Goku Super Saiajin</h5>
-                        <p class="card-text">R$159,99.</p>
-                        <a href="carrinho.html" class="btn btn-primary">Adicionar ao Carrinho</a>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Card 3 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="img/canecagoku2.webp" class="card-img-top" alt="Produto 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Caneca Goku</h5>
-                        <p class="card-text">R$39,99.</p>
-                        <a href="carrinho.html" class="btn btn-primary">Adicionar ao Carrinho</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="container mt-4">
-        <div class="row">
-            <!-- Card 4 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="img/MousePadGamergokublack.png" class="card-img-top" alt="Produto 4">
-                    <div class="card-body">
-                        <h5 class="card-title">Mouse Pad Goku Black</h5>
-                        <p class="card-text">R$49,99.</p>
-                        <a href="carrinho.html" class="btn btn-primary">Adicionar ao Carrinho</a>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Card 5 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="img/jaquetadragonball.jpg" class="card-img-top" alt="Produto 5">
-                    <div class="card-body">
-                        <h5 class="card-title">Jaqueta Dragon Ball</h5>
-                        <p class="card-text">R$79,99.</p>
-                        <a href="carrinho.html" class="btn btn-primary">Adicionar ao Carrinho</a>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Card 6 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="img/tenisdb.jpg" class="card-img-top" alt="Produto 6">
-                    <div class="card-body">
-                        <h5 class="card-title">Tênis Dragon Ball</h5>
-                        <p class="card-text">R$299,99.</p>
-                        <a href="carrinho.html" class="btn btn-primary">Adicionar ao Carrinho</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="container mt-4">
-        <div class="row">
-            <!-- Card 7 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="img/dragon02vermelho1.jpg" class="card-img-top" alt="Produto 7">
-                    <div class="card-body">
-                        <h5 class="card-title">Camisa Goku Vermelha</h5>
-                        <p class="card-text">R$49,99.</p>
-                        <a href="carrinho.html" class="btn btn-primary">Adicionar ao Carrinho</a>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Card 8 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="img/camisa_Dbz.jpeg" class="card-img-top" alt="Produto 8">
-                    <div class="card-body">
-                        <h5 class="card-title">Camiseta Dragon Ball Laranja</h5>
-                        <p class="card-text">R$39,99.</p>
-                        <a href="carrinho.html" class="btn btn-primary">Adicionar ao Carrinho</a>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Card 9 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="img/quadro_dbz.webp" class="card-img-top" alt="Produto 9">
-                    <div class="card-body">
-                        <h5 class="card-title">Quadro Goku</h5>
-                        <p class="card-text">R$39,99.</p>
-                        <a href="carrinho.html" class="btn btn-primary">Adicionar ao Carrinho</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
 
             
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

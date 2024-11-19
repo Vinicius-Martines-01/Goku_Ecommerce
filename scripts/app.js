@@ -5,17 +5,43 @@ function dados(){
         { id: 3, login: "ladygaga", password: "123456@", email: "ladygaga@gmail.com"},//[2]
         { id: 4, login: "snoopy", password: "1950", email: "snoopy@gmail.com"}
      ]
-     return ds
+     let n = JSON.stringify(ds);
+     localStorage.setItem("UsersAll", n);   
+     return ds  
 }
 
-const usuarios = dados()
-//console.log( "Seu login é: " + usuarios[2].login + "\n A sennha sua é: " + usuarios[2].password)
-//let log = document.querySelector("login").value
-//let senha = document.querySelector('password').value
+
+function verify_if_log(){
+    const user = JSON.parse(sessionStorage.getItem("userHere"))
+
+    const login_object = document.getElementById("login-box")
+
+    const carrino_log = document.querySelector(".btn-login")
+
+    if (user !== null){
+        login_object.innerHTML = `<a>
+                  <button class="btn-login"></button>
+                  <p>Olá ${user.nome}<span style="color:red; cursor:pointer" onclick="logoff()"><br>sair</span></p>
+              </a>`
+        carrino_log.classList.add('log')
+    } else{
+
+    }
+}
+
+function logoff(){
+    sessionStorage.removeItem("userHere");
+    sessionStorage.removeItem("carrinho");
+    window.location.href = window.location.href;
+}
 
 function login(event){
     event.preventDefault();
     
+    const usuarios = JSON.parse(localStorage.getItem("UsersAll"))
+    
+
+
     let log = document.querySelector("#login0").value
     let senha = document.querySelector('#password0').value
     //laço for
@@ -23,11 +49,35 @@ function login(event){
             if(log == usuarios[i].login && senha == usuarios[i].password){
                 console.log("voce logou no sistema :) ")
                 window.location.href =  window.location.href.replace("login.html","") + "index.html"
-
-                alert("Voce logou")
+                let user = {nome: usuarios[i].login}
+                
+                sessionStorage.setItem("userHere", JSON.stringify(user))
             }
 }       
 }
+
+function cadastrar(event) {
+    event.preventDefault();
+
+    var usuarios = JSON.parse(localStorage.getItem("UsersAll"))
+    let nome = document.querySelector("#login0").value
+    let senha = document.querySelector("#password0").value
+
+    if (nome !== '' && senha !== ''){
+        let user = { id: Date.now(), login: nome, password: senha}
+        usuarios.push(user)
+
+        localStorage.setItem("UsersAll", JSON.stringify(usuarios))
+        alert('Conta Registrada!')
+
+        document.querySelector("#login0").value = ""
+        document.querySelector("#password0").value = "" 
+
+
+
+    }
+  
+  }
 
 
 function vec_produtos(){
@@ -35,6 +85,12 @@ function vec_produtos(){
         { id: 0, nome: "Camiseta Goku Masculina", img: 'img/camisetagoku.jpg', preco: '59,99', val: 59.99},
         { id: 1, nome: "Boneco Goku Super Saiajin", img: 'img/bonecodogoku.jpg', preco: '159,99', val: 159.99},
         { id: 2, nome: "Caneca Goku", img: 'img/canecagoku2.webp', preco: '39,99', val:39.99},
+        { id: 3, nome: "Mouse Pad Goku Black", img: 'img/MousePadGamergokublack.png', preco: '49,99', val:49.99},
+        { id: 4, nome: "Jaqueta Dragon Ball", img: 'img/jaquetadragonball.jpg', preco: '79,99', val:79.99},
+        { id: 5, nome: "Tênis Dragon Ball", img: 'img/tenisdb.jpg', preco: '299,99', val:299.99},
+        { id: 6, nome: "Camisa Goku Vermelha", img: 'img/dragon02vermelho1.jpg', preco: '49,99', val:49.99},
+        { id: 7, nome: "Camiseta Dragon Ball Laranja", img: 'img/camisa_Dbz.jpeg', preco: '59,99', val:59.99},
+        { id: 8, nome: "Quadro Goku", img: 'img/quadro_dbz.webp', preco: '39,90', val:39.90},
         ]
     let prod = JSON.stringify(os_produtos);
     sessionStorage.setItem("produtos", prod);   
@@ -65,7 +121,7 @@ function add_produtos_to_main(){
 
     for(let i = 0; i < tds_produtos.length; i++){
         produto_cards += `<div value='${tds_produtos[i].id}' class='card-produto'>
-        <img src=${tds_produtos[i].img} class="card-img-top">
+        <img src=${tds_produtos[i].img} class="card-img-top" style="max-width: 90%; height: auto">
         <h5>${tds_produtos[i].nome}</h5>
         <p> R$${tds_produtos[i].preco}</p>
         <div class='buttom-pos'>
@@ -99,8 +155,7 @@ function add_ao_carinho(own, i){
             preco:tds_produtos[i].preco,  valor:tds_produtos[i].val, 
             pos:carrinho_j.length, id:tds_produtos[i].id}
         carrinho_j.push(compra)
-        carrinho_j[0].total += tds_produtos[i].val
-        carrinho_j[0].qtd += 1
+
         
         const carrinho = JSON.stringify(carrinho_j);
         sessionStorage.setItem("carrinho", carrinho); 
@@ -119,7 +174,18 @@ function load_carrinho_qtd(){
 
     const carrinho_qtd = document.getElementById('carrinho_qtd');
     const carrinho_box = document.getElementById('carrinho-box');
-    carrinho_j[0].qtd = carrinho_j.length - 1
+    carrinho_j[0].qtd = 0
+
+
+    // add qtd to carrinho amount
+    if (carrinho_j.length > 1){
+        for (let i = 1; i < carrinho_j.length; i++){
+            carrinho_j[0].qtd += carrinho_j[i].qtd
+            console.log('as qtds: '+carrinho_j[0].qtd)
+        }
+    }
+
+    // change carrinho number
     if (carrinho_qtd.innerHTML != carrinho_j[0].qtd){
         
         carrinho_qtd.style.animation = 'none';
@@ -149,8 +215,7 @@ function change_buttons(){
     for(let i2 = 1; i2 < carrinho_j.length; i2++){
         btn_list.push(carrinho_j[i2].id)
     }
-    console.log(btn_list)
-    
+
     btns.forEach((btn, index) => {
         if (btn_list.includes(index)) {
             btn.classList.add('comprado')
@@ -173,7 +238,7 @@ function load_compras(){
             <img src=${carrinho_j[i].img} class="card-img-top">
             <div class="card-carrinho-div">
                 <h3>${carrinho_j[i].nome}</h3>
-                <p> R$${carrinho_j[i].preco}</p>
+                <p> R$ ${carrinho_j[i].preco}</p>
             </div>
             <nav class="card-carrinho-btns">
                 <button id="mais" onclick="carrinho_nav(this, 1)"></button>
@@ -216,6 +281,7 @@ function carrinho_nav(own, v){
             sessionStorage.setItem("carrinho", carrinho);  
 
             calcular_total()
+            load_carrinho_qtd()
         }
 }
 
@@ -254,6 +320,28 @@ function remove_do_carrinho(own){
             sessionStorage.setItem("carrinho", carrinho);  
             load_compras()
             calcular_total()
+            load_carrinho_qtd()
         }
     }
 }
+
+function finalizar_compra(){
+    const user = JSON.parse(sessionStorage.getItem('userHere'))
+
+    const carrinho_j = JSON.parse(sessionStorage.getItem("carrinho"))
+    
+    if (user === null && carrinho_j.length > 1){
+        alert('faça login para finalizar sua compra')
+        window.location.href = '/login.html'
+    } else if (carrinho_j.length > 1){
+        alert(`compra finalizada!, obrigado ${user.nome} por comprar conosco!`)
+        sessionStorage.removeItem("carrinho")
+        window.location.href =  window.location.href.replace("carrinho.html","") + "index.html"
+    } else if (carrinho_j === null){
+       alert('seu carrinho está vazio!') 
+    } else if (carrinho_j.length < 2){
+        alert('seu carrinho está vazio!') 
+    }
+}
+
+    

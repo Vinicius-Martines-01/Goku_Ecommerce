@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="style/estilos.css">
+
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/carrinho.css">
 
@@ -13,18 +13,27 @@
     
     <title>Carrinho</title>
   </head>
-  <body onload="load_compras(), calcular_total()">
-  <header>
+  <body onload="vec_produtos(), load_compras(), calcular_total(), load_carrinho_qtd(),  verify_if_log()">
+    <header>
       <nav class="nav-main">
           <a class="logo_link" href="index.html">
               <img src="img/LOGO_dbz.png">
               <h1> GokuStore</h1>
           </a>
-          <div >
-              <button class="btn-compras"></button>
-              <div class="carrino_log">
-                  <p id="carrinho_qtd">0</p>
-              </div>
+          <div id="login-box">
+              <a href="login.html">
+                  <button class="btn-login"></button>
+                  <p id="login_txt">Fazer Login</p>
+              </a>
+
+          </div>
+          <div>
+              <a href="carrinho.html">
+                  <button id="carrinho-box" class="btn-compras"></button>
+                  <div class="carrino_log">
+                      <p id="carrinho_qtd">0</p>
+                  </div>
+              </a>
           </div>
       </nav>
       <nav class="nav-bottom">
@@ -33,37 +42,33 @@
           <a class="nav-item nav-link" href="sobrenos.html"> Sobre nós</a>
       </nav>
   </header>
-    <h1>Carrinho</h1>
 
   <!--
     <a href="https://www.flaticon.com/free-icons/up-arrow" title="up arrow icons">Up arrow icons created by Freepik - Flaticon</a>
     <a href="https://www.flaticon.com/free-icons/down-arrow" title="down arrow icons">Down arrow icons created by th studio - Flaticon</a>
     <a href="https://www.flaticon.com/free-icons/close" title="close icons">Close icons created by Pixel perfect - Flaticon</a>
+    <a href="https://www.flaticon.com/br/icones-gratis/cartao-de-credito" title="cartão de crédito ícones">Cartão de crédito ícones criados por Freepik - Flaticon</a>
+    <a href="https://icons8.com/"> Icon por Icons8</a>
     -->
   <div id="items-do-carrinho" class="carrinho-container">
-    <div class='card-carrinho'>
-      <img src="img/boneco_goku.jpeg" class="card-img-top">
-      <div>
-        <h3>Boneco</h3>
-        <p>aa</p>
-        <p>aa</p> 
-      </div>
-    </div>
-
-
-
   </div>
-
-    <h1>Seu Carrinho</h1>
+  
+  <div class="compra-container">
+    <h2>Seu Carrinho</h2>
     <div id="cart-items">
         <!-- Os itens do carrinho serão exibidos aqui -->
     </div>
 
-    <h2 id="mostrar-total">
+    <h3 id="mostrar-total">
 
-    </h2>
-    <button id="checkout-button">Finalizar Compra</button>
-
+    </h3>
+    <button id="checkout-button" onclick="finalizar_compra()">Finalizar Compra</button>
+    <div style="padding-top: 10px; height: fit-content; padding-bottom: 35px;">
+        <img src="img/cartao-de-credito.png" style="height: 60px; cursor: pointer;" title=" ícones criados por Freepik ">
+        <img src="img/pix.png" style="height: 60px; cursor: pointer;" title="Icon por Icons8">
+        
+    </div>
+  </div>
 </body>
 </html>
 

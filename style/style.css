@@ -85,10 +85,23 @@ nav img{
     max-width: 4em;
 }
 
+#login-box > a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#login-box > a:active{
+    text-decoration: none;
+}
+
+
 
 .nav-main{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 80% auto auto;
     gap: 10px;
     padding-top: 5px;
 }
@@ -246,7 +259,28 @@ nav img{
     background-color: #ffa319;
     transition: background-color 0.5s;
     cursor: pointer;
+}
 
+.btn-login {
+    background-image: url('/img/user.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    height: 65px;
+    width: 65px;
+    padding: 0.5em 0.5em;
+    margin: 0.1em;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: rgb(0, 177, 9);
+    transition: background-color 0.5s;
+    cursor: pointer;
+}
+
+.btn-login.log{
+    filter: brightness(130%);
 }
 
 .carrino_log {
@@ -258,6 +292,8 @@ nav img{
     right: 10px;
     top: 10px;
 }
+
+
 
 .carrino_log > p{
     position: relative;

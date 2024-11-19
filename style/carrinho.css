@@ -119,3 +119,40 @@
     filter: brightness(110%);
     transform: translateY(-3px);
 }
+
+.compra-container{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#checkout-button{
+
+    height: 45px;
+    font-weight: bold;
+    position: relative;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    padding: 0.30em 0.75em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-color: rgb(255, 174, 0);
+    border-radius: 0.35em;
+    margin: 15px;
+    box-shadow: none;
+
+    transition: filter 0.1s, transform 0.1s, box-shadow 0.1s;
+    
+
+}
+
+#checkout-button:hover{
+    filter: brightness(150%);
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0px 3px 3px rgba(255, 123, 0, 0.897);
+}

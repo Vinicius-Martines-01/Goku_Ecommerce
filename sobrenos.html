@@ -5,18 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css/estilos.css">
+    <link rel="stylesheet" href="style/style.css">
+
+    <script src="scripts/app.js"></script>
+    
  
     <title>Sobre nós</title>
   </head>
-  <body>
-    <nav class="nav nav-pills nav-fill navbar-light bg-dark" >
+  <body onload="load_carrinho_qtd(),  verify_if_log()">
+    <header>
+      <nav class="nav-main">
+          <a class="logo_link" href="index.html">
+              <img src="img/LOGO_dbz.png">
+              <h1> GokuStore</h1>
+          </a>
+          <div id="login-box">
+              <a href="login.html">
+                  <button class="btn-login"></button>
+                  <p id="login_txt">Fazer Login</p>
+              </a>
 
-        <a class="nav-item nav-link" href="login.html"> Login</a>
-        <a class="nav-item nav-link" href="index.html"> Página Inicial</a>
-        <a class="nav-item nav-link" href="carrinho.html"> Carrinho</a>
-
-     </nav>
+          </div>
+          <div>
+              <a href="carrinho.html">
+                  <button id="carrinho-box" class="btn-compras"></button>
+                  <div class="carrino_log">
+                      <p id="carrinho_qtd">0</p>
+                  </div>
+              </a>
+          </div>
+      </nav>
+      <nav class="nav-bottom">
+          <a class="nav-item nav-link" href="login.html"> Login</a>
+          <a class="nav-item nav-link" href="carrinho.html"> Carrinho</a>
+          <a class="nav-item nav-link" href="sobrenos.html"> Sobre nós</a>
+      </nav>
+  </header>
 
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
