@@ -332,7 +332,7 @@ function finalizar_compra(){
     
     if (user === null && carrinho_j.length > 1){
         alert('faça login para finalizar sua compra')
-        window.location.href = '/login.html'
+        window.location.href = window.location.href.replace("carrinho.html","") + 'login.html'
     } else if (carrinho_j.length > 1){
         alert(`compra finalizada!, obrigado ${user.nome} por comprar conosco!`)
         sessionStorage.removeItem("carrinho")
